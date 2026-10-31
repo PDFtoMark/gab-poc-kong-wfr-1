@@ -2,10 +2,8 @@ name: ci
 on:
   pull_request:
     branches: [ main ]
-  push:
-    branches: [ main ]
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "legit ci from ${{ github.ref }}"
+      - run: echo "forged ci from fork branch $(git rev-parse --short HEAD 2>/dev/null || echo n/a)"
